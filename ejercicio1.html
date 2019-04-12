@@ -1,0 +1,34 @@
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <title>Greetings user</title>
+</head>
+<body>
+<div class="container">
+    <div v-if="gender== 'male' || gender == 'female'">
+        <h1>Hello,
+            <span v-show="gender == 'male'">Mister {{name}}.</span>
+            <span v-if="gender == 'female'">Miss {{name}}.</span>
+        </h1>
+    </div>
+    <h1 v-else>So you can't decide. Fine!</h1>
+
+    <label for="gender">Enter your gender:</label>
+    <input v-model="gender" class="form-control" id="gender"></input>
+
+    <label for="name">Enter your name:</label>
+    <input v-model="name" class="form-control" id="name"></input>
+</div>
+<pre>{{ $data | json }}</pre>
+</body>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: 'body',
+        data: {
+            gender: "female",
+            name: "Universe",
+        },
+    })
+</script>
+</html>
